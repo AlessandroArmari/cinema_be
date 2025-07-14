@@ -34,7 +34,7 @@ paths:
             type: integer
       responses:
         '200':
-          description: Fatture da Scartare
+          description: findById
           content:
             application/json:
               schema:

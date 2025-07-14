@@ -126,11 +126,11 @@
                         </goals>
                         <configuration>
                             <inputSpec>
-                                ${project.basedir}/src/main/resources/progetto2.yaml
+                                ${project.basedir}/src/main/resources/swagger.yaml
                             </inputSpec>
                             <generatorName>spring</generatorName>
-                            <apiPackage>org.example.progetto_2.api</apiPackage>
-                            <modelPackage>org.example.progetto_2.model</modelPackage>
+                            <apiPackage>api_package.api</apiPackage>
+                            <modelPackage>model_package.model</modelPackage>
                             <configOptions>
                                 <useSpringBoot3>true</useSpringBoot3>
                                 <interfaceOnly>true</interfaceOnly>

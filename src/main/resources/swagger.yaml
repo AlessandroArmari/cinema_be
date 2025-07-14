@@ -1,0 +1,57 @@
+#OpenAPI specification
+openapi: 3.0.4
+info:
+  title: microservizio_base
+  description: microservizio_base
+  version: 0.0.1
+
+#The servers section specifies the API server and base URL.
+#You can define one or several servers, such as production and sandbox.
+servers:
+  - url: http://localhost:8086/api/
+    description: Il local host
+
+# All paths are relative to this url
+tags:
+  - name: microservizio_base
+
+
+# The paths section defines individual endpoints (paths) in your API, and the
+# HTTP methods (operations) supported by these endpoints.
+paths:
+  /findById:
+    get:
+      tags:
+        - microservizio_base
+      summary: findById
+      description: findById
+      operationId: findById
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Fatture da Scartare
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/baseDTO'
+
+
+
+
+
+components:
+  schemas:
+    baseDTO:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+        nome:
+          type: string
+

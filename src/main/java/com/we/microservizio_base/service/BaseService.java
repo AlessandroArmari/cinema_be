@@ -1,16 +1,17 @@
 package com.we.microservizio_base.service;
 
-import model_package.model.BaseDTO;
+import model_package.model.BaseReqDTO;
+import model_package.model.BaseResDTO;
 import org.springframework.stereotype.Service;
 
 @Service
 public class BaseService {
 
-    public BaseDTO findById(Long id) {
+    public BaseResDTO findById(Long id) {
         return null;
     }
 
-    public BaseDTO create(BaseDTO baseDTO) {
+    public BaseResDTO create(BaseReqDTO baseReqDTO) {
         return null;
     }
 }

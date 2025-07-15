@@ -19,7 +19,7 @@ tags:
 # The paths section defines individual endpoints (paths) in your API, and the
 # HTTP methods (operations) supported by these endpoints.
 paths:
-  /findById:
+  /base/findById:
     get:
       tags:
         - microservizio_base
@@ -40,7 +40,27 @@ paths:
               schema:
                 $ref: '#/components/schemas/baseDTO'
 
+  /base/create:
+    post:
+      tags:
+        - microservizio_base
+      summary: create
+      description: create
+      operationId: create
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/baseDTO'
 
+      responses:
+        '200':
+          description: findById
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/baseDTO'
 
 
 

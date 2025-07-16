@@ -3,10 +3,13 @@ package com.we.microservizio_base.service;
 import com.we.microservizio_base.model.entity.BaseEntity;
 import com.we.microservizio_base.repository.BaseRepository;
 import com.we.microservizio_base.util.MapperUtil;
+import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import model_package.model.BaseReqDTO;
 import model_package.model.BaseResDTO;
 import org.springframework.stereotype.Service;
+
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -16,7 +19,9 @@ public class BaseService {
     private final MapperUtil mapperUtil;
 
     public BaseResDTO findById(Long id) {
-        return null;
+        return mapperUtil.fromEntToRes(baseRepository.findById(id)
+                .orElseThrow(EntityNotFoundException::new));
+
     }
 
     public BaseResDTO create(BaseReqDTO baseReqDTO) {

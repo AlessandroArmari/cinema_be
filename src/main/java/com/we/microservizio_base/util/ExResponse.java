@@ -12,7 +12,13 @@ import java.time.LocalDateTime;
 public class ExResponse {
 
     private String message;
+    private String javaMessage;
     private Integer statusCode;
     private LocalDateTime timestamp;
+    private String classWhere;
+    private String methodWhere;
+    private String lineNumberWhere;
+    private String fileNameWhere;
+
 
 }

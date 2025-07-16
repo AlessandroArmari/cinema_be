@@ -3,6 +3,7 @@ package com.we.microservizio_base.service;
 import com.we.microservizio_base.model.entity.BaseEntity;
 import com.we.microservizio_base.repository.BaseRepository;
 import com.we.microservizio_base.util.MapperUtil;
+import com.we.microservizio_base.util.exception.NotFoundEx;
 import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import model_package.model.BaseReqDTO;
@@ -20,7 +21,7 @@ public class BaseService {
 
     public BaseResDTO findById(Long id) {
         return mapperUtil.fromEntToRes(baseRepository.findById(id)
-                .orElseThrow(EntityNotFoundException::new));
+                .orElseThrow(() -> new NotFoundEx(id, "BaseEntity", "non trovata")));
 
     }
 

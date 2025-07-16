@@ -2,6 +2,7 @@ package com.we.microservizio_base.model.entity;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.PreRemove;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
@@ -31,4 +32,9 @@ public class AuditClass {
 
     @Column(nullable = false, columnDefinition = "BOOLEAN default true")
     public boolean isActive = true;
+
+    @PreRemove
+    public void preRemove() {
+        this.deletedAt = LocalDateTime.now();
+    }
 }

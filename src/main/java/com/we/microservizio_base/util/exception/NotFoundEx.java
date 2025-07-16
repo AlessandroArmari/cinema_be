@@ -11,8 +11,10 @@ public class NotFoundEx extends BaseEx {
     public String entity;
 
 
+
     public NotFoundEx(Long id, String entity, String message) {
         super(message);
+        this.setStatusCode(400);
         this.id = id;
         this.entity = entity;
     }

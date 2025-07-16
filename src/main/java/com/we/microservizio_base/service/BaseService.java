@@ -1,5 +1,6 @@
 package com.we.microservizio_base.service;
 
+import com.we.microservizio_base.K.K;
 import com.we.microservizio_base.model.entity.BaseEntity;
 import com.we.microservizio_base.repository.BaseRepository;
 import com.we.microservizio_base.util.MapperUtil;
@@ -21,7 +22,7 @@ public class BaseService {
 
     public BaseResDTO findById(Long id) {
         return mapperUtil.fromEntToRes(baseRepository.findById(id)
-                .orElseThrow(() -> new NotFoundEx(id, "BaseEntity", "non trovata")));
+                .orElseThrow(() -> new NotFoundEx(id, K.BASE_ENTITY, "")));
 
     }
 

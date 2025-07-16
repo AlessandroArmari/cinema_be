@@ -11,8 +11,8 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 public class ExResponse {
 
-    public String message;
-    public Integer statusCode;
-    public LocalDateTime timestamp;
+    private String message;
+    private Integer statusCode;
+    private LocalDateTime timestamp;
 
 }

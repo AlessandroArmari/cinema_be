@@ -6,13 +6,13 @@ import lombok.*;
 
 import java.time.LocalDate;
 
+@EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
-@ToString
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class BaseEntity {
+public class BaseEntity extends AuditClass {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = K.BASE_ENTITY + K.SEQ_GEN)

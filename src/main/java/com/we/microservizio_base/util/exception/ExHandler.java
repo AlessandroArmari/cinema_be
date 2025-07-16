@@ -19,9 +19,11 @@ public class ExHandler extends ResponseEntityExceptionHandler {
     @ExceptionHandler(BaseEx.class)
     public ResponseEntity<ExResponse> BaseExHandler(BaseEx ex) {
 
-        ExResponse exResponse = (ex instanceof NotFoundEx)
-                ? mapperUtil.fromExToExResponse((NotFoundEx) ex)
-                : mapperUtil.fromExToExResponse(ex);
+        ExResponse exResponse = switch (ex) {
+            case NotFoundEx nf -> mapperUtil.fromExToExResponse(nf);
+            default -> mapperUtil.fromExToExResponse(ex);
+        };
+
 
         return new ResponseEntity<>(exResponse, HttpStatusCode.valueOf(exResponse.getStatusCode()));
     }

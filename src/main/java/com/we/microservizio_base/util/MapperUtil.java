@@ -24,7 +24,6 @@ public interface MapperUtil {
     @Mapping(target = "message", expression = "java(ExMessage.notFound(ex.getId(), ex.getEntity()))")
     ExResponse fromExToExResponse(NotFoundEx ex);
 
-
     ExResponse fromExToExResponse(BaseEx ex);
 
 

@@ -8,7 +8,7 @@ info:
 #The servers section specifies the API server and base URL.
 #You can define one or several servers, such as production and sandbox.
 servers:
-  - url: http://localhost:8086/api/
+  - url: http://localhost:8086
     description: Il local host
 
 # All paths are relative to this url
@@ -84,8 +84,10 @@ components:
         id:
           type: integer
           format: int64
-        nome_cognome:
+        nomeRes:
           type: string
-        data:
+        cognomeRes:
           type: string
-          format: date-time
+        dataRes:
+          type: string
+          format: date

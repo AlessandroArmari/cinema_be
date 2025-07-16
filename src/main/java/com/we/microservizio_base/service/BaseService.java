@@ -1,33 +1,42 @@
 package com.we.microservizio_base.service;
 
 import com.we.microservizio_base.K.K;
+import com.we.microservizio_base.interfaceImpl.ServiceImpl;
 import com.we.microservizio_base.model.entity.BaseEntity;
 import com.we.microservizio_base.repository.BaseRepository;
 import com.we.microservizio_base.util.MapperUtil;
 import com.we.microservizio_base.util.exception.NotFoundEx;
-import jakarta.persistence.EntityNotFoundException;
 import lombok.RequiredArgsConstructor;
 import model_package.model.BaseReqDTO;
 import model_package.model.BaseResDTO;
 import org.springframework.stereotype.Service;
 
-import java.util.Optional;
-
 @Service
 @RequiredArgsConstructor
-public class BaseService {
+public class BaseService implements ServiceImpl<BaseResDTO, BaseReqDTO> {
 
     private final BaseRepository baseRepository;
     private final MapperUtil mapperUtil;
 
     public BaseResDTO findById(Long id) {
-        return mapperUtil.fromEntToRes(baseRepository.findById(id)
-                .orElseThrow(() -> new NotFoundEx(id, K.BASE_ENTITY, "")));
-
+        return mapperUtil.fromEntToRes(this.findEntityOnDb(id));
     }
 
     public BaseResDTO create(BaseReqDTO baseReqDTO) {
         BaseEntity baseEntity = baseRepository.save(mapperUtil.fromReqToEnt(baseReqDTO));
         return mapperUtil.fromEntToRes(baseEntity);
+    }
+
+    @Override
+    public BaseResDTO updateById(Long id, BaseReqDTO baseReqDTO) {
+        BaseEntity baseEntity = this.findEntityOnDb(id);
+        baseEntity = mapperUtil.fromReqToEnt(baseReqDTO);
+        baseEntity.setId(id);
+        return mapperUtil.fromEntToRes(baseRepository.save(baseEntity));
+    }
+
+    private BaseEntity findEntityOnDb(Long id) {
+        return baseRepository.findById(id)
+                .orElseThrow(() -> new NotFoundEx(id, K.BASE_ENTITY));
     }
 }

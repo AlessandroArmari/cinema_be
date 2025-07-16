@@ -6,7 +6,6 @@ import lombok.RequiredArgsConstructor;
 import model_package.model.BaseReqDTO;
 import model_package.model.BaseResDTO;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -23,6 +22,11 @@ public class BaseController implements BaseApi {
     @Override
     public ResponseEntity<BaseResDTO> create(BaseReqDTO baseReqDTO) {
         return ResponseEntity.ok(baseService.create(baseReqDTO));
+    }
+
+    @Override
+    public ResponseEntity<BaseResDTO> updateById(Long id, BaseReqDTO baseReqDTO) {
+        return ResponseEntity.ok(baseService.updateById(id, baseReqDTO));
     }
 
 

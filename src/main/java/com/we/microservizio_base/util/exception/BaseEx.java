@@ -1,9 +1,7 @@
 package com.we.microservizio_base.util.exception;
 
-import lombok.Builder;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
-import org.springframework.http.HttpStatusCode;
 
 import java.time.LocalDateTime;
 
@@ -21,10 +19,9 @@ public class BaseEx extends RuntimeException {
     private String fileNameWhere;
 
 
-    public BaseEx(String message) {
+    public BaseEx() {
         super();
         this.message = message;
-        //this.javaMessage = this.getCause().getMessage();
         this.statusCode = 500;
         this.timestamp = LocalDateTime.now();
 

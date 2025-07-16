@@ -63,8 +63,34 @@ paths:
               schema:
                 $ref: '#/components/schemas/baseResDTO'
 
+  /base/updateById:
+    put:
+      tags:
+        - microservizio_base
+      summary: updateById
+      description: updateById
+      operationId: updateById
+      parameters:
+        - name: id
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/baseReqDTO'
 
-
+      responses:
+        '200':
+          description: updateById
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/baseResDTO'
 components:
   schemas:
     baseReqDTO:

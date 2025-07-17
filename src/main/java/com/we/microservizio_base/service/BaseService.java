@@ -6,6 +6,7 @@ import com.we.microservizio_base.model.entity.BaseEntity;
 import com.we.microservizio_base.repository.BaseRepository;
 import com.we.microservizio_base.utils.MapperUtil;
 import com.we.microservizio_base.utils.service_util.BaseUtil;
+import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import model_package.model.BaseReqDTO;
 import model_package.model.BaseResDTO;
@@ -25,12 +26,14 @@ public class BaseService implements ServiceImpl<BaseResDTO, BaseReqDTO> {
     }
 
     @Override
+    @Transactional
     public BaseResDTO create(BaseReqDTO baseReqDTO) {
         BaseEntity baseEntity = baseRepository.save(mapperUtil.fromReqToEnt(baseReqDTO));
         return mapperUtil.fromEntToRes(baseEntity);
     }
 
     @Override
+    @Transactional
     public BaseResDTO updateById(Long id, BaseReqDTO baseReqDTO) {
         BaseEntity baseEntity = baseUtil.findEntityOnDbOrThrow(id);
         baseEntity = mapperUtil.fromReqToEnt(baseReqDTO);

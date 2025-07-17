@@ -29,6 +29,10 @@ public class BaseController implements BaseApi {
         return ResponseEntity.ok(baseService.updateById(id, baseReqDTO));
     }
 
-
+    @Override
+    public ResponseEntity<Void> deleteById(Long id) {
+        baseService.deleteById(id);
+        return ResponseEntity.noContent().build();
+    }
 
 }

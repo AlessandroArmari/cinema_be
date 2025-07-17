@@ -35,6 +35,12 @@ public class BaseService implements ServiceImpl<BaseResDTO, BaseReqDTO> {
         return mapperUtil.fromEntToRes(baseRepository.save(baseEntity));
     }
 
+    @Override
+    public void deleteById(Long id) {
+        BaseEntity baseEntity = this.findEntityOnDb(id);
+        baseRepository.deleteById(baseEntity.getId());
+    }
+
     private BaseEntity findEntityOnDb(Long id) {
         return baseRepository.findById(id)
                 .orElseThrow(() -> new NotFoundEx(id, K.BASE_ENTITY));

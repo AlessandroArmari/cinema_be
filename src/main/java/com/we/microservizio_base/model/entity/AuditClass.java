@@ -17,10 +17,6 @@ public class AuditClass {
     @UpdateTimestamp
     private LocalDateTime updatedAt;
 
-    @UpdateTimestamp
-    @Column
-    private LocalDateTime lastUpdateAt;
-
     @Column
     private LocalDateTime deletedAt;
 

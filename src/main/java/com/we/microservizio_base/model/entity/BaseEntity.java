@@ -17,7 +17,7 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @SQLDelete(sql = "UPDATE base_entity SET is_active = FALSE, deleted_at = LOCALTIMESTAMP WHERE id = ?")
-@SQLRestriction("is_active = TRUE")
+@SQLRestriction(K.IS_ACTIVE + " = TRUE")
 public class BaseEntity extends AuditClass {
 
     @Id

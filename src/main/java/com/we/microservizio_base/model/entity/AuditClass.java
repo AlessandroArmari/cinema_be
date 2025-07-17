@@ -29,8 +29,4 @@ public class AuditClass {
     @Column(nullable = false, columnDefinition = "BOOLEAN default true")
     public boolean isActive = true;
 
-    @PreRemove
-    public void preRemove() {
-        this.deletedAt = LocalDateTime.now();
-    }
 }

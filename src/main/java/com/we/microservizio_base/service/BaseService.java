@@ -18,10 +18,12 @@ public class BaseService implements ServiceImpl<BaseResDTO, BaseReqDTO> {
     private final BaseRepository baseRepository;
     private final MapperUtil mapperUtil;
 
+    @Override
     public BaseResDTO findById(Long id) {
-        return mapperUtil.fromEntToRes(this.findEntityOnDb(id));
+        return mapperUtil.fromEntToRes(this.findEntityOnDbOrThrow(id));
     }
 
+    @Override
     public BaseResDTO create(BaseReqDTO baseReqDTO) {
         BaseEntity baseEntity = baseRepository.save(mapperUtil.fromReqToEnt(baseReqDTO));
         return mapperUtil.fromEntToRes(baseEntity);
@@ -29,7 +31,7 @@ public class BaseService implements ServiceImpl<BaseResDTO, BaseReqDTO> {
 
     @Override
     public BaseResDTO updateById(Long id, BaseReqDTO baseReqDTO) {
-        BaseEntity baseEntity = this.findEntityOnDb(id);
+        BaseEntity baseEntity = this.findEntityOnDbOrThrow(id);
         baseEntity = mapperUtil.fromReqToEnt(baseReqDTO);
         baseEntity.setId(id);
         return mapperUtil.fromEntToRes(baseRepository.save(baseEntity));
@@ -37,11 +39,11 @@ public class BaseService implements ServiceImpl<BaseResDTO, BaseReqDTO> {
 
     @Override
     public void deleteById(Long id) {
-        BaseEntity baseEntity = this.findEntityOnDb(id);
+        BaseEntity baseEntity = this.findEntityOnDbOrThrow(id);
         baseRepository.deleteById(baseEntity.getId());
     }
 
-    private BaseEntity findEntityOnDb(Long id) {
+    private BaseEntity findEntityOnDbOrThrow(Long id) {
         return baseRepository.findById(id)
                 .orElseThrow(() -> new NotFoundEx(id, K.BASE_ENTITY));
     }

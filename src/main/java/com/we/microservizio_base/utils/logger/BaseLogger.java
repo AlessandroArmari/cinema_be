@@ -21,6 +21,7 @@ public class BaseLogger {
         MDC.put("fileName", exResponse.getFileName());
         MDC.put("method", exResponse.getMethod());
         MDC.put("lineNumber", exResponse.getLineNumber());
+        MDC.put("endPoint", exResponse.getEndPoint());
 
         //quando e se siavrò uno user
         //MDC.put("userId", "UserIdDaDefinire");

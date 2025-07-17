@@ -1,7 +1,6 @@
-package com.we.microservizio_base.util.exception;
+package com.we.microservizio_base.utils.exception.ex_entity;
 
 import lombok.*;
-import lombok.experimental.SuperBuilder;
 
 @Getter
 @Setter

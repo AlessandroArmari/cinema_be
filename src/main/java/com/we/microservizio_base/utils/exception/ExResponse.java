@@ -1,4 +1,4 @@
-package com.we.microservizio_base.util;
+package com.we.microservizio_base.utils.exception;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

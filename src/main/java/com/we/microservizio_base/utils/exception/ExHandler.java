@@ -1,7 +1,8 @@
-package com.we.microservizio_base.util.exception;
+package com.we.microservizio_base.utils.exception;
 
-import com.we.microservizio_base.util.ExResponse;
-import com.we.microservizio_base.util.MapperUtil;
+import com.we.microservizio_base.utils.MapperUtil;
+import com.we.microservizio_base.utils.exception.ex_entity.BaseEx;
+import com.we.microservizio_base.utils.exception.ex_entity.NotFoundEx;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;

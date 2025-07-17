@@ -1,9 +1,10 @@
-package com.we.microservizio_base.util;
+package com.we.microservizio_base.utils;
 
 import com.we.microservizio_base.model.entity.BaseEntity;
-import com.we.microservizio_base.util.exception.BaseEx;
-import com.we.microservizio_base.util.exception.ExMessage;
-import com.we.microservizio_base.util.exception.NotFoundEx;
+import com.we.microservizio_base.utils.exception.ex_entity.BaseEx;
+import com.we.microservizio_base.utils.exception.ExMessage;
+import com.we.microservizio_base.utils.exception.ExResponse;
+import com.we.microservizio_base.utils.exception.ex_entity.NotFoundEx;
 import model_package.model.BaseReqDTO;
 import model_package.model.BaseResDTO;
 import org.mapstruct.Mapper;

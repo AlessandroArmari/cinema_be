@@ -1,4 +1,4 @@
-package com.we.microservizio_base.util.exception;
+package com.we.microservizio_base.utils.exception;
 
 public class ExMessage {
 

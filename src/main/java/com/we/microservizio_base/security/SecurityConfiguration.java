@@ -1,5 +1,6 @@
 package com.we.microservizio_base.security;
 
+import com.we.microservizio_base.K.K_API;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -18,7 +19,7 @@ public class SecurityConfiguration {
                 .csrf(AbstractHttpConfigurer::disable)
                 .httpBasic(AbstractHttpConfigurer::disable)
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-                .authorizeHttpRequests(auth -> auth.requestMatchers("/base/**").permitAll()
+                .authorizeHttpRequests(auth -> auth.requestMatchers(K_API.URL_BASE + "/**").permitAll()
                         // -> modificare /base/** -> SUCCESSIVAMENTE
                         // -> considera che /api è il Context Path non viene considerato da Spring Security
 
@@ -29,8 +30,7 @@ public class SecurityConfiguration {
 
                         .anyRequest().authenticated()
                 )
-                .addFilterBefore(new BaseFilter(this.sentrinelService), AnonymousAuthenticationFilter.class);
-
+                .addFilterBefore(new BaseFilter(), AnonymousAuthenticationFilter.class);
 
 
         return http.build();

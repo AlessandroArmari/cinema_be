@@ -13,12 +13,12 @@ public class ExResponse {
 
     private String message;
     private String javaMessage;
-    private Integer statusCode;
-    private LocalDateTime timestamp;
-    private String classWhere;
-    private String methodWhere;
-    private String lineNumberWhere;
-    private String fileNameWhere;
+    private String statusCode;
+    private LocalDateTime timeStamp;
+    private String method;
+    private String lineNumber;
+    private String fileName;
+    private String endPoint;
 
 
 }

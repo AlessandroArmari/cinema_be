@@ -1,12 +1,12 @@
 <configuration>
 
     <!-- EVITA DI LOGGARE LOG DI DEFAULTI INFERIORI A  ERROR  (WARNING TIPO) -->
-    <!--<logger name="org.springframework.web" level="ERROR"/>-->
+    <logger name="org.springframework.web" level="ERROR"/>
 
 
     <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
         <encoder>
-            <pattern>%d{yyyy-MM-dd HH:mm:ss}  %highlight(%-5level) %cyan(className:) %X{className} - %cyan(method:) %X{method} - %cyan(endPoint:) %X{endPoint} - %cyan(msg:) %msg - %cyan(userId:) %X{userId}%n</pattern>
+            <pattern>%d{yyyy-MM-dd HH:mm:ss} %highlight(%-5level) %cyan(message:) %message - %cyan(statusCode:) %X{statusCode} - %cyan(timeStamp:) %X{timeStamp} - %cyan(fileName:) %X{fileName} - %cyan(method:) %X{method} - %cyan(lineNumber:) %X{lineNumber} - %cyan(endPoint:) %X{endPoint} - %cyan(userId:) %X{userId}%n</pattern>
         </encoder>
     </appender>
 

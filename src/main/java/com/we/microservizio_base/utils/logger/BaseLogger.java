@@ -1,8 +1,7 @@
 package com.we.microservizio_base.utils.logger;
 
+import com.we.microservizio_base.utils.exception.ExResponse;
 import lombok.extern.slf4j.Slf4j;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.slf4j.MDC;
 
 @Slf4j
@@ -15,9 +14,18 @@ public class BaseLogger {
         log.info(message);
     }
 
-    public static void error(String message) {
+    public static void error(String message, ExResponse exResponse) {
 
+        MDC.put("statusCode", exResponse.getStatusCode());
+        MDC.put("timeStamp", exResponse.getTimeStamp().toString());
+        MDC.put("fileName", exResponse.getFileName());
+        MDC.put("method", exResponse.getMethod());
+        MDC.put("lineNumber", exResponse.getLineNumber());
+
+        //quando e se siavrò uno user
+        //MDC.put("userId", "UserIdDaDefinire");
         log.error(message);
+
     }
 
     private static void patternModifier(String className, String method) {

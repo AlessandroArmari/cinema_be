@@ -3,6 +3,7 @@ package com.we.microservizio_base.utils.exception;
 import com.we.microservizio_base.utils.MapperUtil;
 import com.we.microservizio_base.utils.exception.ex_entity.BaseEx;
 import com.we.microservizio_base.utils.exception.ex_entity.NotFoundEx;
+import com.we.microservizio_base.utils.logger.BaseLogger;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
@@ -25,7 +26,8 @@ public class ExHandler extends ResponseEntityExceptionHandler {
             default -> mapperUtil.fromExToExResponse(ex);
         };
 
+        BaseLogger.error(exResponse.getMessage(), exResponse);
 
-        return new ResponseEntity<>(exResponse, HttpStatusCode.valueOf(exResponse.getStatusCode()));
+        return new ResponseEntity<>(exResponse, HttpStatusCode.valueOf(Integer.parseInt(exResponse.getStatusCode())));
     }
 }

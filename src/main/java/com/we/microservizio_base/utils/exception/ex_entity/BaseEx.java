@@ -12,25 +12,26 @@ public class BaseEx extends RuntimeException {
     private String message;
     private String javaMessage;
     private Integer statusCode;
-    private LocalDateTime timestamp;
+    private LocalDateTime timeStamp;
     private String classWhere;
-    private String methodWhere;
-    private String lineNumberWhere;
-    private String fileNameWhere;
+    private String fileName;
+    private String method;
+    private String lineNumber;
+    private String endPoint;
 
 
     public BaseEx() {
         super();
-        this.message = message;
         this.statusCode = 500;
-        this.timestamp = LocalDateTime.now();
+        this.timeStamp = LocalDateTime.now();
 
         StackTraceElement[] stackTraceElements = this.getStackTrace();
 
-        this.classWhere = stackTraceElements[0].getClassName();
-        this.methodWhere = stackTraceElements[0].getMethodName();
-        this.lineNumberWhere = stackTraceElements[0].getFileName();
-        this.fileNameWhere = stackTraceElements[0].getFileName();
+        //this.classWhere = stackTraceElements[0].getClassName();
+        this.method = stackTraceElements[0].getMethodName();
+        this.lineNumber = String.valueOf(stackTraceElements[0].getLineNumber());
+        this.fileName = stackTraceElements[0].getFileName();
+        this.endPoint = "endPoint";
 
     }
 }

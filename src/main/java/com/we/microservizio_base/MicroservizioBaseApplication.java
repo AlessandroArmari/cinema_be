@@ -8,6 +8,10 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 @EnableWebSecurity//(debug = true)
 public class MicroservizioBaseApplication {
 
+    /*
+    TODO: 1) OGGETTO ERRORE RITORNATO
+     */
+
     public static void main(String[] args) {
         SpringApplication.run(MicroservizioBaseApplication.class, args);
     }

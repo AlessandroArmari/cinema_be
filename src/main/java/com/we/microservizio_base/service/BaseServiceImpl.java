@@ -1,7 +1,6 @@
 package com.we.microservizio_base.service;
 
-import com.we.microservizio_base.configuration.BaseInterceptor;
-import com.we.microservizio_base.interfaceImpl.ServiceImpl;
+import com.we.microservizio_base.interfaceImpl.Iservice;
 import com.we.microservizio_base.model.entity.BaseEntity;
 import com.we.microservizio_base.repository.BaseRepository;
 import com.we.microservizio_base.utils.MapperUtil;
@@ -14,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class BaseService implements ServiceImpl<BaseResDTO, BaseReqDTO> {
+public class BaseServiceImpl implements Iservice<BaseResDTO, BaseReqDTO> {
 
     private final BaseRepository baseRepository;
     private final BaseUtil baseUtil;

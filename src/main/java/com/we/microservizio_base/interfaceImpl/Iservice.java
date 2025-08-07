@@ -1,7 +1,7 @@
 package com.we.microservizio_base.interfaceImpl;
 
 
-public interface ServiceImpl<T, REQ_DTO> {
+public interface Iservice<T, REQ_DTO> {
 
     T findById(Long id);
 

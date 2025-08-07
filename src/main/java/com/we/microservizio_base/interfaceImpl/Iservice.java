@@ -1,13 +1,15 @@
 package com.we.microservizio_base.interfaceImpl;
 
+import org.springframework.stereotype.Repository;
 
-public interface Iservice<T, REQ_DTO> {
+@Repository
+public interface Iservice<RES_DTO, REQ_DTO> {
 
-    T findById(Long id);
+    RES_DTO findById(Long id);
 
-    T create(REQ_DTO reqDTO);
+    RES_DTO create(REQ_DTO reqDTO);
 
-    T updateById(Long id, REQ_DTO reqDTO);
+    RES_DTO updateById(Long id, REQ_DTO reqDTO);
 
     void deleteById(Long id);
 

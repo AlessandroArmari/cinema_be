@@ -34,8 +34,8 @@ public class BaseServiceImpl implements Iservice<BaseResDTO, BaseReqDTO> {
     @Override
     @Transactional
     public BaseResDTO updateById(Long id, BaseReqDTO baseReqDTO) {
-        BaseEntity baseEntity = baseUtil.findEntityOnDbOrThrow(id);
-        baseEntity = mapperUtil.fromReqToEnt(baseReqDTO);
+        baseUtil.findEntityOnDbOrThrow(id);
+        BaseEntity baseEntity = mapperUtil.fromReqToEnt(baseReqDTO);
         baseEntity.setId(id);
         return mapperUtil.fromEntToRes(baseRepository.save(baseEntity));
     }

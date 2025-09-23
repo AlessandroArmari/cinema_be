@@ -1,9 +1,9 @@
 services:
   postgres:
-    container_name: "microservizio_base_container"
+    container_name: "cinema_db"
     image: "postgres:latest"
     environment:
-      - "POSTGRES_DB=mydatabase"
+      - "POSTGRES_DB=cinema_db"
       - "POSTGRES_PASSWORD=password"
       - "POSTGRES_USER=user"
     ports:

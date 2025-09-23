@@ -23,9 +23,9 @@ paths:
     get:
       tags:
         - movie
-      summary: findMovieById
-      description: findMovieById
-      operationId: findMovieById
+      summary: findById
+      description: findById
+      operationId: findById
       parameters:
         - name: id
           in: query
@@ -35,7 +35,7 @@ paths:
             format: int64
       responses:
         '200':
-          description: findMovieById
+          description: findById
           content:
             application/json:
               schema:

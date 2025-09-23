@@ -23,7 +23,10 @@ public class Movie extends AuditClass {
     @SequenceGenerator(name = K.MOVIE + K.SEQ_GEN)
     private Long id;
 
-    @Column(columnDefinition = "TEXT")
+    @Column
+    private String title;
+
+    @Column
     private Integer runtime;
 
     @Column

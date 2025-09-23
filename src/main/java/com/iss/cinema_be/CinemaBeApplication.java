@@ -7,7 +7,10 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class CinemaBeApplication {
 
     public static void main(String[] args) {
+
         SpringApplication.run(CinemaBeApplication.class, args);
+
+        System.out.println("CinemaBeApplication started");
     }
 
 }

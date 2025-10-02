@@ -6,8 +6,6 @@ import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
-import java.time.LocalDate;
-
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
@@ -23,13 +21,17 @@ public class Movie extends AuditClass {
     @SequenceGenerator(name = K.MOVIE + K.SEQ_GEN)
     private Long id;
 
-    @Column
+    @Column(nullable = false, unique = true)
     private String title;
 
-    @Column
+    @Column(nullable = false)
     private Integer runtime;
 
-    @Column
-    private LocalDate releaseDate ;
+    @Column(nullable = false)
+    private Integer releaseYear;
+
+    @ManyToOne
+    @JoinColumn(name="director_id", nullable = false, referencedColumnName = "id")
+    private Director director;
 
 }

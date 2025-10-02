@@ -10,7 +10,7 @@ public class CinemaBeApplication {
 
         SpringApplication.run(CinemaBeApplication.class, args);
 
-        System.out.println("CinemaBeApplication started");
+        System.out.println("+++CinemaBeApplication started+++");
     }
 
 }

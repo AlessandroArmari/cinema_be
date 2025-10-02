@@ -24,15 +24,15 @@ public class Director extends AuditClass {
     @SequenceGenerator(name = K.DIRECTOR + K.SEQ_GEN)
     private Long id;
 
-    @Column
+    @Column(nullable = false)
     private String name;
 
-    @Column
+    @Column(nullable = false)
     private String surname;
 
-    @Column
+    @Column(nullable = false)
     private LocalDate dob;
 
-    @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "director", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Movie> movies;
 }

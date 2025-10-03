@@ -112,23 +112,42 @@ components:
   schemas:
     movieReqDto:
       type: object
+      required:
+        - title
+        - runtime
+        - releaseYear
+        - directorUuid
       properties:
         title:
           type: string
-        releaseDate:
+          minLength: 1
+          maxLength: 100
+        runtime:
+          type: integer
+          format: int64
+          minLength: 1
+          maxLength: 6000
+        releaseYear:
+          type: integer
+          format: int64
+          minLength: 1890
+          maxLength: 2100
+        directorUuid:
           type: string
-          format: date
+
 
     movieResDto:
       type: object
       properties:
-        id:
-          type: integer
-          format: int64
+        uuid:
+          type: string
         title:
           type: string
-        releaseDate:
-          type: string
-          format: date
-        director:
+        runtime:
+          type: integer
+          format: int64
+        releaseYear:
+          type: integer
+          format: int64
+        directorUuid:
           type: string

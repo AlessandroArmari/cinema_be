@@ -7,9 +7,13 @@ import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @MappedSuperclass
 public class AuditClass {
+
+    @Column(unique = true,  nullable = false)
+    private UUID uuid = UUID.randomUUID();
 
     @CreationTimestamp
     private LocalDateTime createdAt;

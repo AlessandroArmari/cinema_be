@@ -11,6 +11,8 @@ import model_package.model.MovieReqDto;
 import model_package.model.MovieResDto;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 @RequiredArgsConstructor
 public class MovieServiceImpl implements Iservice<MovieResDto, MovieReqDto> {
@@ -22,6 +24,11 @@ public class MovieServiceImpl implements Iservice<MovieResDto, MovieReqDto> {
     @Override
     public MovieResDto findById(Long id) {
         return mapperUtil.fromEntToRes(baseUtil.findEntityOnDbOrThrow(id));
+    }
+
+    @Override
+    public List<MovieResDto> findAll() {
+        return List.of();
     }
 
     @Override

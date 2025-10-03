@@ -19,7 +19,7 @@ tags:
 # The paths section defines individual endpoints (paths) in your API, and the
 # HTTP methods (operations) supported by these endpoints.
 paths:
-  /movie:
+  /movie/{uuid}:
     get:
       tags:
         - movie
@@ -27,12 +27,11 @@ paths:
       description: findById
       operationId: findById
       parameters:
-        - name: id
-          in: query
+        - name: uuid
+          in: path
           required: true
           schema:
-            type: integer
-            format: int64
+            type: string
       responses:
         '200':
           description: findById
@@ -40,6 +39,24 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/movieResDto'
+
+  /movie:
+    get:
+      tags:
+        - movie
+      summary: findAll
+      description: findAll
+      operationId: findAll
+      responses:
+        '200':
+          description: list of movies
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/movieResDto'
+
     post:
       tags:
         - movie

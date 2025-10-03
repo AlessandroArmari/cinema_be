@@ -8,6 +8,8 @@ import model_package.model.MovieResDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 @RequiredArgsConstructor
 public class MovieController implements MovieApi {
@@ -20,13 +22,18 @@ public class MovieController implements MovieApi {
     }
 
     @Override
-    public ResponseEntity<MovieResDto> createMovie(MovieReqDto MovieReqDto) {
-        return ResponseEntity.ok(iService.create(MovieReqDto));
+    public ResponseEntity<List<MovieResDto>> findAll() {
+        return ResponseEntity.ok(iService.findAll());
     }
 
     @Override
-    public ResponseEntity<MovieResDto> updateById(Long id, MovieReqDto MovieReqDto) {
-        return ResponseEntity.ok(iService.updateById(id, MovieReqDto));
+    public ResponseEntity<MovieResDto> createMovie(MovieReqDto movieReqDto) {
+        return ResponseEntity.ok(iService.create(movieReqDto));
+    }
+
+    @Override
+    public ResponseEntity<MovieResDto> updateById(Long id, MovieReqDto movieReqDto) {
+        return ResponseEntity.ok(iService.updateById(id, movieReqDto));
     }
 
     @Override

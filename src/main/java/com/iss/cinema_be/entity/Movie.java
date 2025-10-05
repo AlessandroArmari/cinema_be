@@ -1,6 +1,7 @@
 package com.iss.cinema_be.entity;
 
 import com.iss.cinema_be.K.K;
+import com.iss.cinema_be.entity.ext.AuditClass;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;

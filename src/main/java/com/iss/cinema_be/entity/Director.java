@@ -8,6 +8,7 @@ import org.hibernate.annotations.SQLRestriction;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
 @Entity
@@ -22,6 +23,7 @@ public class Director extends AuditClass {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = K.MOVIE + K.SEQ_GEN)
     @SequenceGenerator(name = K.DIRECTOR + K.SEQ_GEN)
+    @Column(name = "director_id")
     private Long id;
 
     @Column(nullable = false)
@@ -32,6 +34,13 @@ public class Director extends AuditClass {
 
     @Column(nullable = false)
     private LocalDate dob;
+
+    @ManyToMany
+    @JoinTable(
+            name = "director_nation",
+            joinColumns = @JoinColumn(name = "director_id"),
+            inverseJoinColumns = @JoinColumn(name = "nation_code"))
+    private Set<Nation> nationalities;
 
     @OneToMany(mappedBy = "director", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Movie> movies;

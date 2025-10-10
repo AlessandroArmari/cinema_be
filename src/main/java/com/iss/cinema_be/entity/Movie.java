@@ -6,6 +6,8 @@ import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
+import java.util.Set;
+
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
@@ -19,6 +21,7 @@ public class Movie extends AuditClass {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = K.MOVIE + K.SEQ_GEN)
     @SequenceGenerator(name = K.MOVIE + K.SEQ_GEN)
+    @Column(name = "movie_id")
     private Long id;
 
     @Column(nullable = false, unique = true)
@@ -30,8 +33,15 @@ public class Movie extends AuditClass {
     @Column(nullable = false)
     private Integer releaseYear;
 
+    @ManyToMany
+    @JoinTable(
+            name = "movie_nation",
+            joinColumns = @JoinColumn(name = "movie_id"),
+            inverseJoinColumns = @JoinColumn(name = "nation_code"))
+    private Set<Nation> nationalities;
+
     @ManyToOne
-    @JoinColumn(name="director_id", nullable = false, referencedColumnName = "id")
+    @JoinColumn(name="director_id", nullable = false, referencedColumnName = "director_id")
     private Director director;
 
 }

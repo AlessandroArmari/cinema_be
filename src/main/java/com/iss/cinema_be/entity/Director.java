@@ -43,5 +43,5 @@ public class Director extends AuditClass {
     private Set<Nation> nationalities;
 
     @OneToMany(mappedBy = "director", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private List<Movie> movies;
+    private Set<Movie> movies;
 }

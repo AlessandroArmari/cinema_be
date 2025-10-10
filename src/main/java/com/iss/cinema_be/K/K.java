@@ -4,6 +4,10 @@ public class K {
 
     public static final String MOVIE = "MOVIE";
     public static final String DIRECTOR = "DIRECTOR";
+    public static final String ACCOUNT = "ACCOUNT";
+    public static final String BOOKING = "BOOKING";
+
+
 
 
     public static final String SEQ_GEN = "SEQ_GEN";

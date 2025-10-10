@@ -9,6 +9,8 @@ public class K {
     public static final String TICKET = "TICKET";
     public static final String SHOW = "SHOW";
     public static final String SEAT = "SEAT";
+    public static final String HALL = "HALL";
+
 
 
 

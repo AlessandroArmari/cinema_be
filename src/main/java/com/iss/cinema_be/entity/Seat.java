@@ -36,4 +36,8 @@ public class Seat extends AuditClass {
     @OneToMany(mappedBy = "seat", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private List<Ticket> tickets;
 
+    @ManyToOne
+    @JoinColumn(name = "hall_id", nullable = false, referencedColumnName = "hall_id")
+    private Hall hall;
+
 }

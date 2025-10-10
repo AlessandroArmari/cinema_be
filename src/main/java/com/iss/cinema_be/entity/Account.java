@@ -8,7 +8,6 @@ import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 @EqualsAndHashCode(callSuper = true)
@@ -35,6 +34,9 @@ public class Account extends AuditClass {
 
     @Column(nullable = false)
     private LocalDate dob;
+
+    @Column(nullable = false)
+    private LocalDate regDate;
 
     @OneToMany(mappedBy = "account", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Booking> bookings;

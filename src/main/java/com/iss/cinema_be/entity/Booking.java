@@ -1,6 +1,7 @@
 package com.iss.cinema_be.entity;
 
 import com.iss.cinema_be.K.K;
+import com.iss.cinema_be.entity.enum_pack.PaymentMethod;
 import jakarta.persistence.*;
 import lombok.*;
 import org.hibernate.annotations.SQLDelete;
@@ -22,8 +23,14 @@ public class Booking extends AuditClass {
     @Column(name = "booking_id")
     private Long id;
 
+    @Column(columnDefinition = "BOOLEAN default true")
+    private Boolean paymentDeclined;
+
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false, referencedColumnName = "account_id")
     private Account account;
+
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod paymentMethod;
 
 }

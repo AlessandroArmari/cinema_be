@@ -8,6 +8,8 @@ import lombok.*;
 import org.hibernate.annotations.SQLDelete;
 import org.hibernate.annotations.SQLRestriction;
 
+import java.util.Set;
+
 @EqualsAndHashCode(callSuper = true)
 @Entity
 @Data
@@ -27,11 +29,13 @@ public class Booking extends AuditClass {
     @Column(columnDefinition = "BOOLEAN default true")
     private Boolean paymentDeclined;
 
+    @Enumerated(EnumType.STRING)
+    private PaymentMethod paymentMethod;
+
     @ManyToOne
     @JoinColumn(name = "account_id", nullable = false, referencedColumnName = "account_id")
     private Account account;
 
-    @Enumerated(EnumType.STRING)
-    private PaymentMethod paymentMethod;
-
+    @OneToMany(mappedBy = "booking", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Set<Ticket> tickets;
 }

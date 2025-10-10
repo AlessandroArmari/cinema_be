@@ -6,6 +6,12 @@ public class K {
     public static final String DIRECTOR = "DIRECTOR";
     public static final String ACCOUNT = "ACCOUNT";
     public static final String BOOKING = "BOOKING";
+    public static final String TICKET = "TICKET";
+    public static final String SHOW = "SHOW";
+    public static final String SEAT = "SEAT";
+
+
+
 
 
 

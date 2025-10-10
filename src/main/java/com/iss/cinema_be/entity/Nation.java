@@ -23,9 +23,9 @@ public class Nation {
     @Column(nullable = false, unique = true)
     private String name;
 
-    @ManyToMany(mappedBy = "nationalities")
+    @ManyToMany(mappedBy = "nationalities",  fetch = FetchType.LAZY)
     private Set<Movie> movies;
 
-    @ManyToMany(mappedBy = "nationalities")
+    @ManyToMany(mappedBy = "nationalities",  fetch = FetchType.LAZY)
     private Set<Director> directors;
 }

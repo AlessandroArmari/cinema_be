@@ -29,6 +29,9 @@ public class Booking extends AuditClass {
     @Column(columnDefinition = "BOOLEAN default true")
     private Boolean paymentDeclined;
 
+    @Column
+    private Double amount;
+
     @Enumerated(EnumType.STRING)
     private PaymentMethod paymentMethod;
 

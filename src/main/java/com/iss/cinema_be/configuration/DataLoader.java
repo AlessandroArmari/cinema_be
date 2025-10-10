@@ -29,9 +29,6 @@ public class DataLoader implements ApplicationRunner {
 
         this.createNations();
 
-        //Nation US = nationRepository.getReferenceById("US");
-        //Nation IT = nationRepository.getReferenceById("IT");
-
         Nation US = nationRepository.getReferenceById("US");
         Nation IT = nationRepository.getReferenceById("IT");
         Nation FR = nationRepository.getReferenceById("FR");

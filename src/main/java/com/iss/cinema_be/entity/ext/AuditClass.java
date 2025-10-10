@@ -1,8 +1,7 @@
-package com.iss.cinema_be.entity;
+package com.iss.cinema_be.entity.ext;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.MappedSuperclass;
-import jakarta.persistence.PreRemove;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 

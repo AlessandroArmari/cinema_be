@@ -5,8 +5,8 @@ services:
     container_name: cinema_db
     environment:
       POSTGRES_DB: cinema_db
-      POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
     ports:
       - "5432:5432"
     volumes:
@@ -15,11 +15,11 @@ services:
 
   keycloak_db:
     image: postgres:latest
-    container_name: keycloak_db
+    container_name: ${KEYCLOAK_DB}
     environment:
-      POSTGRES_DB: keycloak_db
-      POSTGRES_USER: keycloak_root
-      POSTGRES_PASSWORD: keycloak_root
+      POSTGRES_DB: ${KEYCLOAK_DB}
+      POSTGRES_USER: ${KC_DB_USERNAME}
+      POSTGRES_PASSWORD: ${KC_DB_PASSWORD}
     volumes:
       - "keycloak_db_data:/var/lib/postgresql/data"
     restart: unless-stopped
@@ -38,9 +38,9 @@ services:
       KC_LOG_LEVEL: info
 
       KC_DB: postgres
-      KC_DB_URL: jdbc:postgresql://keycloak_db:5432/keycloak_db
-      KC_DB_USERNAME: keycloak_root
-      KC_DB_PASSWORD: keycloak_root
+      KC_DB_URL: jdbc:postgresql://keycloak_db:5432/${KEYCLOAK_DB}
+      KC_DB_USERNAME: ${KC_DB_USERNAME}
+      KC_DB_PASSWORD: ${KC_DB_PASSWORD}
 
     command: start-dev
     depends_on:

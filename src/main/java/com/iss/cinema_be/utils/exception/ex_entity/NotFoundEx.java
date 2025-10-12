@@ -7,6 +7,7 @@ import lombok.*;
 public class NotFoundEx extends BaseEx {
 
     public Long id;
+    public String uuid;
     public String entity;
 
 
@@ -15,6 +16,13 @@ public class NotFoundEx extends BaseEx {
         super();
         this.setStatusCode(400);
         this.id = id;
+        this.entity = entity;
+    }
+
+    public NotFoundEx(String uuid, String entity) {
+        super();
+        this.setStatusCode(400);
+        this.uuid = uuid;
         this.entity = entity;
     }
 }

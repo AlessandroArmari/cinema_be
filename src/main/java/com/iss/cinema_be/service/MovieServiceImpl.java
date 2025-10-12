@@ -22,6 +22,11 @@ public class MovieServiceImpl implements Iservice<MovieResDto, MovieReqDto> {
     private final MapperUtil mapperUtil;
 
     @Override
+    public MovieResDto findByUuid(String uuid) {
+        return mapperUtil.fromEntToRes(baseUtil.findEntityOnDbOrThrow(uuid));
+    }
+
+    @Override
     public MovieResDto findById(Long id) {
         return mapperUtil.fromEntToRes(baseUtil.findEntityOnDbOrThrow(id));
     }

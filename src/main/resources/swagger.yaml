@@ -23,9 +23,9 @@ paths:
     get:
       tags:
         - movie
-      summary: findById
-      description: findById
-      operationId: findById
+      summary: findByUuid
+      description: findByUuid
+      operationId: findByUuid
       parameters:
         - name: uuid
           in: path
@@ -34,7 +34,7 @@ paths:
             type: string
       responses:
         '200':
-          description: findById
+          description: findByUuid
           content:
             application/json:
               schema:

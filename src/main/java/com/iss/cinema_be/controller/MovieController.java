@@ -17,8 +17,8 @@ public class MovieController implements MovieApi {
     private final Iservice<MovieResDto, MovieReqDto> iService;
 
     @Override
-    public ResponseEntity<MovieResDto> findById(Long id) {
-        return ResponseEntity.ok(iService.findById(id));
+    public ResponseEntity<MovieResDto> findByUuid(String uuid) {
+        return ResponseEntity.ok(iService.findByUuid(uuid));
     }
 
     @Override

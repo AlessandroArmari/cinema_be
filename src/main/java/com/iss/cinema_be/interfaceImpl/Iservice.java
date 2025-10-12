@@ -7,6 +7,8 @@ import java.util.List;
 @Repository
 public interface Iservice<RES_DTO, REQ_DTO> {
 
+    RES_DTO findByUuid(String uuid);
+
     RES_DTO findById(Long id);
 
     List<RES_DTO> findAll();

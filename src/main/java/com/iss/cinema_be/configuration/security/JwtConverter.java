@@ -1,4 +1,4 @@
-package com.iss.cinema_be.configuration;
+package com.iss.cinema_be.configuration.security;
 
 import lombok.NonNull;
 import org.springframework.beans.factory.annotation.Value;

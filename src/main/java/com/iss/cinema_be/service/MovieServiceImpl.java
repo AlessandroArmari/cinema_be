@@ -39,7 +39,10 @@ public class MovieServiceImpl implements Iservice<MovieResDto, MovieReqDto> {
     @Override
     @Transactional
     public MovieResDto create(MovieReqDto movieReqDto) {
-        return mapperUtil.fromEntToRes(movieRepository.save(mapperUtil.fromReqToEnt(movieReqDto)));
+        Movie movie = mapperUtil.fromReqToEnt(movieReqDto);
+        movie = movieRepository.save(movie);
+        MovieResDto movieResDto = mapperUtil.fromEntToRes(movie);
+        return movieResDto;
     }
 
     @Override

@@ -23,6 +23,8 @@ public interface MapperUtil {
     @Mapping(target = "director", source = "directorUuid", qualifiedByName = "findEntityOnDbOrThrow")
     Movie fromReqToEnt(MovieReqDto movieReqDto);
 
+    GESTIRE NAZIONI IN ENTRATA
+
     @Mapping(target = "directorUuid", source = "director", qualifiedByName = "getUuid")
     MovieResDto fromEntToRes(Movie movie);
 

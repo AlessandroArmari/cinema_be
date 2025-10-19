@@ -41,7 +41,7 @@ public class Director extends AuditClass {
             name = "director_nation",
             joinColumns = @JoinColumn(name = "director_id"),
             inverseJoinColumns = @JoinColumn(name = "nation_code"))
-    private Set<Nation> nationalities;
+    private Set<Nation> nation;
 
     @OneToMany(mappedBy = "director", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Movie> movies;

@@ -151,6 +151,12 @@ components:
           maxLength: 2100
         directorUuid:
           type: string
+        nation:
+          type: array
+          items:
+            type: string
+
+
 
 
     movieResDto:

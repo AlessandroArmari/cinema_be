@@ -39,7 +39,7 @@ public class Movie extends AuditClass {
             name = "movie_nation",
             joinColumns = @JoinColumn(name = "movie_id"),
             inverseJoinColumns = @JoinColumn(name = "nation_code"))
-    private Set<Nation> nationalities;
+    private Set<Nation> nation;
 
     @ManyToOne
     @JoinColumn(name="director_id", nullable = false, referencedColumnName = "director_id")

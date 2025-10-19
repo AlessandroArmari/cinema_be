@@ -2,13 +2,12 @@ package com.iss.cinema_be.controller;
 
 import api_package.api.MovieApi;
 import com.iss.cinema_be.K.K_AUTH;
-import com.iss.cinema_be.interfaceImpl.Iservice;
+import com.iss.cinema_be.interfaces.Iservice;
 import lombok.RequiredArgsConstructor;
 import model_package.model.MovieReqDto;
 import model_package.model.MovieResDto;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.annotation.Secured;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;

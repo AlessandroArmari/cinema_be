@@ -1,7 +1,7 @@
 package com.iss.cinema_be.service;
 
 import com.iss.cinema_be.entity.Movie;
-import com.iss.cinema_be.interfaceImpl.Iservice;
+import com.iss.cinema_be.interfaces.Iservice;
 import com.iss.cinema_be.repository.MovieRepository;
 import com.iss.cinema_be.utils.MapperUtil;
 import com.iss.cinema_be.utils.service_util.MovieUtil;
@@ -17,18 +17,18 @@ import java.util.List;
 @RequiredArgsConstructor
 public class MovieServiceImpl implements Iservice<MovieResDto, MovieReqDto> {
 
-    private final MovieRepository baseRepository;
-    private final MovieUtil baseUtil;
+    private final MovieRepository movieRepository;
+    private final MovieUtil movieUtil;
     private final MapperUtil mapperUtil;
 
     @Override
     public MovieResDto findByUuid(String uuid) {
-        return mapperUtil.fromEntToRes(baseUtil.findEntityOnDbOrThrow(uuid));
+        return mapperUtil.fromEntToRes(movieUtil.findEntityOnDbOrThrow(uuid));
     }
 
     @Override
     public MovieResDto findById(Long id) {
-        return mapperUtil.fromEntToRes(baseUtil.findEntityOnDbOrThrow(id));
+        return mapperUtil.fromEntToRes(movieUtil.findEntityOnDbOrThrow(id));
     }
 
     @Override
@@ -39,23 +39,22 @@ public class MovieServiceImpl implements Iservice<MovieResDto, MovieReqDto> {
     @Override
     @Transactional
     public MovieResDto create(MovieReqDto movieReqDto) {
-        Movie movie = baseRepository.save(mapperUtil.fromReqToEnt(movieReqDto));
-        return mapperUtil.fromEntToRes(movie);
+        return mapperUtil.fromEntToRes(movieRepository.save(mapperUtil.fromReqToEnt(movieReqDto)));
     }
 
     @Override
     @Transactional
     public MovieResDto updateById(Long id, MovieReqDto baseReqDTO) {
-        baseUtil.findEntityOnDbOrThrow(id);
+        movieUtil.findEntityOnDbOrThrow(id);
         Movie movie = mapperUtil.fromReqToEnt(baseReqDTO);
         movie.setId(id);
-        return mapperUtil.fromEntToRes(baseRepository.save(movie));
+        return mapperUtil.fromEntToRes(movieRepository.save(movie));
     }
 
     @Override
     public void deleteById(Long id) {
-        Movie movie = baseUtil.findEntityOnDbOrThrow(id);
-        baseRepository.deleteById(movie.getId());
+        Movie movie = movieUtil.findEntityOnDbOrThrow(id);
+        movieRepository.deleteById(movie.getId());
     }
 
 

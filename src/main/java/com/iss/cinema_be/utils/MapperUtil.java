@@ -1,29 +1,26 @@
 package com.iss.cinema_be.utils;
 
 import com.iss.cinema_be.entity.Movie;
+import com.iss.cinema_be.interfaces.Iutil;
 import com.iss.cinema_be.utils.exception.ex_entity.BaseEx;
 import com.iss.cinema_be.utils.exception.ExMessage;
 import com.iss.cinema_be.utils.exception.ExResponse;
 import com.iss.cinema_be.utils.exception.ex_entity.NotFoundEx;
 
 
+import com.iss.cinema_be.utils.service_util.DirectorUtil;
 import model_package.model.MovieReqDto;
 import model_package.model.MovieResDto;
 import org.mapstruct.Mapper;
 import org.mapstruct.Mapping;
 
-@Mapper(componentModel = "spring", imports = ExMessage.class)
+@Mapper(componentModel = "spring", uses = DirectorUtil.class, imports = ExMessage.class)
 public interface MapperUtil {
 
-    //@Mapping(source = "data", target = "data", dateFormat = "yyyy-MM-dd")
+    @Mapping(target = "director", source = "directorUuid", qualifiedByName = "findEntityOnDbOrThrow")
     Movie fromReqToEnt(MovieReqDto movieReqDto);
 
-    /*
-    @Mapping(source = "nome", target = "nomeRes")
-    @Mapping(source = "cognome", target = "cognomeRes")
-    @Mapping(source = "data", target = "dataRes")
-
-     */
+    @Mapping(target = "director", source = "directorUuid", qualifiedByName = "findEntityOnDbOrThrow")
     MovieResDto fromEntToRes(Movie movie);
 
     //EXCEPTION

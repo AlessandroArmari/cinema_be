@@ -1,7 +1,6 @@
 package com.iss.cinema_be.configuration;
 
-import com.iss.cinema_be.entity.*;
-import com.iss.cinema_be.entity.enum_pack.PaymentMethod;
+import com.iss.cinema_be.entity.Nation;
 import com.iss.cinema_be.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.ApplicationArguments;
@@ -9,9 +8,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
@@ -26,6 +23,7 @@ public class DataLoader implements ApplicationRunner {
     @Transactional
     public void run(ApplicationArguments args) {
 
+        /*
         this.createNations();
 
         Nation US = nationRepository.getReferenceById("US");
@@ -57,6 +55,8 @@ public class DataLoader implements ApplicationRunner {
         Booking bookingMario2 = bookingRepository.save(Booking.builder().paymentDeclined(false).paymentMethod(PaymentMethod.BANK_TRANSFER).amount(6.00).account(mario).build());
         Booking bookingLucia = bookingRepository.save(Booking.builder().paymentDeclined(true).paymentMethod(PaymentMethod.PAYPAL).amount(8.5).account(lucia).build());
         Booking bookingGiovanni = bookingRepository.save(Booking.builder().paymentDeclined(true).paymentMethod(PaymentMethod.CASH).amount(25.5).account(giovanni).build());
+
+   */
     }
 
     private void createNations() {

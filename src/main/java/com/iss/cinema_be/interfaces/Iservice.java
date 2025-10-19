@@ -1,4 +1,4 @@
-package com.iss.cinema_be.interfaceImpl;
+package com.iss.cinema_be.interfaces;
 
 import org.springframework.stereotype.Repository;
 
